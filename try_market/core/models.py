@@ -26,6 +26,8 @@ class order(models.Model):
     adress = models.CharField(max_length=50) 
     phone_num = models.IntegerField()
     product_id = models.ForeignKey(product, on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.quantity*self.product_id.price)
 
 class reviews(models.Model):
     product = models.ForeignKey(product, on_delete=models.CASCADE)

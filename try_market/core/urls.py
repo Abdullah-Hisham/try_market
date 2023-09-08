@@ -11,6 +11,7 @@ urlpatterns = [
     path('product_reviews/<int:pk>/',views.product_reviews),
     path('product_info/<int:pk>/',views.product_info),
     path('auth/',auth.as_view()),
-    path('api/auth/', include('authentication.urls')),
+    path('make_order/<int:pk>',views.make_order),
+
 
 ]

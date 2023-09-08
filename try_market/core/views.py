@@ -88,4 +88,21 @@ class auth(APIView):
         }
 
         return Response(content)
+@api_view(['POST'])
+def make_order(request,pk):
+    order_n = order()
+    order_n.name = request.data['name']
+    order_n.quantity = request.data['quantity']
+    order_n.adress = request.data['adress']
+    order_n.phone_num = request.data['phone_num']
+    p = product.objects.get(pk = pk )
+    order_n.product_id = p
+    pproduct = get_object_or_404(product, pk = pk)
+    qquantity = int(request.POST.get('quantity'))
+    p.quantity -= qquantity
+    p.save()
+    order_n.save()
+    return Response(status=status.HTTP_201_CREATED)
+def count_sell_product(request,pk):
     
+    pass
