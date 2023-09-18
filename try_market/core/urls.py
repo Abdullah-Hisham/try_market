@@ -12,6 +12,7 @@ urlpatterns = [
     path('product_info/<int:pk>/',views.product_info),
     path('auth/',auth.as_view()),
     path('make_order/<int:pk>',views.make_order),
+    path('count_sell_product/<int:pk>',views.count_sell_product)
 
 
 ]
